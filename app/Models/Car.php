@@ -16,4 +16,8 @@ class Car extends Model
         'speed',
         'power',
     ];
+
+//    function user(){
+//        return $this->belongsTo(User::class);
+//    }
 }
