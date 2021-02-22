@@ -27,7 +27,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-//    function cars(){
-//        return $this->hasMany(Car::class);
-//    }
+    function cars(){
+        return $this->hasMany(Car::class);
+    }
 }

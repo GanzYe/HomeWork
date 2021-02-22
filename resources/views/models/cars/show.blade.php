@@ -3,10 +3,11 @@
 
 @section('content')
 <h1>Cars show</h1>
-
-<div>
-    <a href="{{route('cars.edit',$car)}}">Редактировать</a>
-</div>
+    @can('update',$car)
+        <div>
+            <a href="{{route('cars.edit',$car)}}">Редактировать</a>
+        </div>
+    @endcan
 
 <div>
     Название: <b>{{$car->name}}</b>
@@ -23,9 +24,10 @@
 <div>
     Мощност: <b>{{$car->power}}</b>
 </div>
+@can('delete',$car)
 <form action="{{route('cars.destroy',$car)}}" method="post">
     @csrf @method('delete')
     <button>Удалить</button>
 </form>
-
+@endcan
 @endsection

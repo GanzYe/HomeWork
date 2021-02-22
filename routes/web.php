@@ -13,5 +13,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+require __DIR__.'/auth.php';
 Route::redirect('/','cars');
-Route::resource('cars',CarController::class);
+Route::resource('cars', CarController::class);
+

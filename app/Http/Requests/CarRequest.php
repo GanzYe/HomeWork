@@ -8,6 +8,7 @@ use Illuminate\Validation\Rule;
 
 class CarRequest extends FormRequest
 {
+
     public function rules()
     {
         $unique = Rule::unique('cars');

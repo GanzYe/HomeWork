@@ -17,7 +17,7 @@ class Car extends Model
         'power',
     ];
 
-//    function user(){
-//        return $this->belongsTo(User::class);
-//    }
+    function user(){
+        return $this->belongsTo(User::class);
+    }
 }

@@ -4,10 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CarRequest;
 use App\Models\Car;
+use http\Client\Curl\User;
 use Illuminate\Http\Request;
 
 class CarController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(Car::class,'car',[
+            'except'=>['index','show']
+        ]);
+    }
 
     public function index()
     {
@@ -22,9 +29,7 @@ class CarController extends Controller
 
     public function store(CarRequest $request)
     {
-        $car = $request->validated();
-        $car = new Car($car);
-        $car->save();
+        $car =auth()->user()->cars()->create($request->validated());
         return redirect()->route('cars.show',$car);
     }
 
